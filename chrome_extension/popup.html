@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      width: 320px;
+      padding: 0;
+      margin: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      padding: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      text-align: center;
+    }
+    .logo {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #3b82f6;
+    }
+    .content {
+      padding: 24px;
+    }
+    .risk-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      border-radius: 100px;
+      color: #10b981;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .stock-info {
+        margin-bottom: 24px;
+    }
+    .ticker {
+        font-size: 24px;
+        font-weight: 800;
+        margin-bottom: 4px;
+    }
+    .reasoning {
+        font-size: 13px;
+        color: #94a3b8;
+        line-height: 1.6;
+    }
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background: #2563eb;
+    }
+    .footer {
+        padding: 16px;
+        font-size: 10px;
+        color: #475569;
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">FINGUARD <span style="color: #fff">AI</span></div>
+  </div>
+  <div class="content">
+    <div id="no-stock" style="text-align: center; color: #475569;">
+        <p>Navigate to a supported stock page to activate Vortex scan.</p>
+    </div>
+    <div id="stock-view" style="display: none;">
+        <div class="risk-badge">
+            <span id="risk-status">Vortex: STABLE</span>
+        </div>
+        <div class="stock-info">
+            <div id="ticker-name" class="ticker">RELIANCE</div>
+            <div id="risk-reason" class="reasoning">
+                Trading patterns are consistent with normal institutional flow. No manipulative spikes detected.
+            </div>
+        </div>
+        <button class="btn" id="open-dashboard">View Deep Analysis</button>
+    </div>
+  </div>
+  <div class="footer">
+    POWERED BY VORTEX CORE 7.21
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
