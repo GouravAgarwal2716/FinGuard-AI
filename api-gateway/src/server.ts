@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import { createClient } from '@supabase/supabase-js';
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
+import path from 'path';
 
 dotenv.config({ path: require('path').join(__dirname, '../../.env') });
 
@@ -270,7 +271,10 @@ app.put('/api/alerts/:id/read', requireAuth, async (req: AuthRequest, res: Respo
     return res.json({ message: 'Marked as read' });
 });
 
-// ─── Start ────────────────────────────────────────────────────────────────────
+// ─── Frontend Static Serving ──────────────────────────────────────────────────
+
+const PUBLIC_DIR = path.join(__dirname, '../public');
+app.use(express.static(PUBLIC_DIR));
 
 // ─── Chatbot Route (OpenAI API) ────────────────────────────────────────────────
 
@@ -314,4 +318,9 @@ app.listen(PORT, () => {
     console.log(`\n🛡️  FinGuard API Gateway running on http://localhost:${PORT}`);
     console.log(`🤖  Proxying AI Engine at ${AI_ENGINE_URL}`);
     console.log(`🗄️  Supabase connected: ${process.env.SUPABASE_URL}\n`);
+});
+
+// SPA Fallback: Serve index.html for any unknown routes
+app.get('*', (req, res) => {
+    res.sendFile(path.join(PUBLIC_DIR, 'index.html'));
 });
