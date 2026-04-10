@@ -18,16 +18,17 @@ COPY api-gateway/ .
 RUN npm run build
 
 # --- Stage 3: Final Production Image ---
-FROM node:20-bookworm-slim
+FROM node:20-bookworm
 
 WORKDIR /app
 
 # Install Python and essential build tools
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
     python3-pip \
     python3-venv \
     build-essential \
+    ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
 # Create a virtual environment for Python to avoid EXTERNALLY-MANAGED errors
