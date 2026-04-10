@@ -1,12 +1,10 @@
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
+import path from 'path';
 import dotenv from 'dotenv';
 import { createClient } from '@supabase/supabase-js';
-import axios from 'axios';
-import jwt from 'jsonwebtoken';
-import path from 'path';
 
-dotenv.config({ path: require('path').join(__dirname, '../../.env') });
+dotenv.config({ path: path.join(__dirname, '../../.env') });
 
 const app = express();
 const PORT = process.env.PORT || 4000;

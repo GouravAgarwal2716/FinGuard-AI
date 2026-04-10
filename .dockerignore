@@ -1,0 +1,39 @@
+# Dependencies
+**/node_modules
+**/dist
+**/build
+.venv
+venv
+ENV
+env
+__pycache__
+*.pyc
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# IDEs
+.vscode
+.idea
+.cursor
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project-specific
+chrome_extension
+supabase_schema.sql
+PROJECT_README.md
+SETUP_GUIDE.md
+README.md
+*.ps1
